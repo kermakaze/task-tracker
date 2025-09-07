@@ -1,0 +1,63 @@
+.taskItem {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #bdbdbd;
+    padding: 10px;
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 8px;
+}
+
+.taskItem:hover {
+    border: 1px solid #1681f8;
+    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.15);
+    transform: translateY(-2px);
+    transition: box-shadow 0.15s,
+    transform 0.15s,
+    border 0.15s;
+}
+
+.priority {
+    text-align: center;
+    width: 100px;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.low {
+    color: #016501;
+    background: #5cd95c;
+
+}
+
+.medium {
+    color: #603b00;
+    background: orange;
+}
+
+.high {
+    color: #4b0303;
+    background: red;
+}
+
+.deleteBtn {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.deleteBtn:hover {
+    background: #e60000;
+}
+
+.id {
+    font-size: 12px;
+    color: #6b6b6b;
+    font-family: Verdana;
+    font-weight: bold;
+}
