@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { TaskItem } from "./TaskItem";
-import { Priority, type Task } from "../types/task";
+import { TaskItem } from "./TaskItem.tsx";
+import { Priority, type Task } from "../../types/task.ts";
 
 // Prepare a mock for deleteTask that can be reset between tests
 const deleteTaskMock = vi.fn();

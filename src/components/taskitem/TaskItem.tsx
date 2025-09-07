@@ -1,5 +1,5 @@
-import type { Task } from "../types/task.ts";
-import { useTasks } from "../hooks/useTasks.ts";
+import type { Task } from "../../types/task.ts";
+import { useTasks } from "../../hooks/useTasks.ts";
 import styles from "./TaskItem.module.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import React from "react";
