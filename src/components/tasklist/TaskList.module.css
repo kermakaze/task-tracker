@@ -14,3 +14,11 @@
     border: none;
     background: #eaeaea;
 }
+
+.hintCommand {
+    border: 1px solid #DDDDDD;
+    padding: 4px;
+    border-radius: 4px;
+    margin-left: auto;
+    font-size: 12px;
+}

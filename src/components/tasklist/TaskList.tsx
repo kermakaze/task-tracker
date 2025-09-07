@@ -3,6 +3,7 @@ import { TaskItem } from "../taskitem/TaskItem.tsx";
 import KitchenIcon from "@mui/icons-material/Kitchen";
 import React from "react";
 import styles from "./TaskList.module.css";
+import AddIcon from "@mui/icons-material/Add";
 
 export const TaskList: React.FC<{
   onAddTask?: () => void;
@@ -39,8 +40,16 @@ export const TaskList: React.FC<{
         filteredTasks.map((task) => <TaskItem key={task.id} task={task} />)
       )}
       {showAddButton && (
-        <button className={styles.addTaskBtn} onClick={onAddTask}>
-          Add New Task
+        <button
+          className={styles.addTaskBtn}
+          onClick={onAddTask}
+          style={{
+            float: "right",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <AddIcon /> Add New Task <span className={styles.hintCommand}>N</span>
         </button>
       )}
     </div>
