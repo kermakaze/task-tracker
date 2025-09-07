@@ -3,6 +3,7 @@ import { TaskForm } from "./components/taskform/TaskForm.tsx";
 import { TaskList } from "./components/tasklist/TaskList.tsx";
 import { useEffect, useState } from "react";
 import { useTasks } from "./hooks/useTasks.ts";
+import { PriorityFilter } from "./components/priorityfilter/PriorityFilter.tsx";
 
 const NEW_TASK_HOTKEY = "n";
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className={"app"}>
       <h1>Task Tracker</h1>
+      <PriorityFilter />
       <TaskList
         tasks={tasks}
         filterApplied={filterApplied}
