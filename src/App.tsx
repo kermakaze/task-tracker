@@ -18,7 +18,13 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === NEW_TASK_HOTKEY.toLowerCase() && !showForm) {
+      const active = document.activeElement;
+      const isInput =
+        active &&
+        (active.tagName === "INPUT" ||
+          active.tagName === "TEXTAREA" ||
+          (active as HTMLElement).isContentEditable);
+      if (e.key === NEW_TASK_HOTKEY.toLowerCase() && !showForm && !isInput) {
         e.preventDefault();
         setShowForm(true);
       }
