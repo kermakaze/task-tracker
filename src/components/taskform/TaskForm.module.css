@@ -3,7 +3,7 @@
     flex-direction: column;
     border: 1px solid #bdbdbd;
     padding: 10px;
-    background: white;
+    background: var(--bg-color);
     border-radius: 14px;
     margin-bottom: 8px;
 }
@@ -11,10 +11,12 @@
 input,
 textarea,
 select {
+    color: var(--text-color);
     height: 50px;
     margin-bottom: 10px;
     border: none;
     outline: none;
+    background: var(--card-color);
 }
 
 .addBtn:hover {
@@ -33,7 +35,7 @@ select {
     padding: 6px 8px;
     font-size: 1rem;
     margin-right: 4px;
-    background: #fafafa;
+    background: var(--card-color);
 }
 
 .taskSelect {

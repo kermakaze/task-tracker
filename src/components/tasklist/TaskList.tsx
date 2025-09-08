@@ -74,7 +74,7 @@ export const TaskList: React.FC<{
       style={{
         display: "flex",
         flexDirection: "column",
-        background: "#fff",
+        background: "var(--bg-color)",
         borderRadius: "16px",
         boxShadow: "0 2px 16px #0001",
         padding: "20px",
@@ -134,6 +134,7 @@ export const TaskList: React.FC<{
             float: "right",
             display: "flex",
             alignItems: "center",
+            color: "var(--text-color)",
           }}
         >
           <AddIcon /> Add New Task <span className={styles.hintCommand}>N</span>

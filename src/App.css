@@ -1,7 +1,9 @@
 #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    background: var(--card-color);
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .logo {

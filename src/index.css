@@ -1,16 +1,29 @@
 :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-color: #ffffff;
+
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
     color: #213547;
-    background-color: #f8f8f8;
-    color-scheme: light;
-
-    font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+body[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-color: #1e1e1e;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
 
 a {
     font-weight: 500;
