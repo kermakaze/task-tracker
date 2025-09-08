@@ -7,7 +7,7 @@ Features include:
 - Filter tasks by priority (**Low, Medium, High**)
 - LocalStorage persistence (tasks + theme)
 - Sequential task IDs
-- Modal-based Task Form
+- Inline-based Task Form
 - Drag-and-drop re-ordering for tasks (custom implementation)
 - Dark/Light mode toggle using Context + CSS variables
 - **Keyboard-friendly**:
