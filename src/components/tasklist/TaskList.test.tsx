@@ -62,24 +62,34 @@ describe("TaskList", () => {
 
   it("renders 'No tasks available.' message if filtered tasks is empty", () => {
     render(
-      <TaskList
-        tasks={tasks}
-        filterApplied={Priority.MEDIUM}
-        showAddButton={true}
-      />,
+      <TaskProvider>
+        <TaskList
+          tasks={tasks}
+          filterApplied={Priority.MEDIUM}
+          showAddButton={true}
+        />
+      </TaskProvider>,
     );
     expect(screen.getByText(/no tasks available/i)).toBeInTheDocument();
   });
 
   it("renders add button if showAddButton is true", () => {
-    render(<TaskList tasks={tasks} showAddButton={true} />);
+    render(
+      <TaskProvider>
+        <TaskList tasks={tasks} showAddButton={true} />
+      </TaskProvider>,
+    );
     expect(
       screen.getByRole("button", { name: /add new task/i }),
     ).toBeInTheDocument();
   });
 
   it("does not render add button if showAddButton is false", () => {
-    render(<TaskList tasks={tasks} showAddButton={false} />);
+    render(
+      <TaskProvider>
+        <TaskList tasks={tasks} showAddButton={false} />
+      </TaskProvider>,
+    );
     expect(
       screen.queryByRole("button", { name: /add new task/i }),
     ).not.toBeInTheDocument();
@@ -88,7 +98,9 @@ describe("TaskList", () => {
   it("calls onAddTask when add button is clicked", () => {
     const onAddTask = vi.fn();
     render(
-      <TaskList tasks={tasks} showAddButton={true} onAddTask={onAddTask} />,
+      <TaskProvider>
+        <TaskList tasks={tasks} showAddButton={true} onAddTask={onAddTask} />,
+      </TaskProvider>,
     );
     const addBtn = screen.getByRole("button", { name: /add new task/i });
     fireEvent.click(addBtn);
