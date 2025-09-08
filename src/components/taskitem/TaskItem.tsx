@@ -94,10 +94,9 @@ export const TaskItem: React.FC<{ task: Task }> = ({ task }) => {
             <input
               type="radio"
               checked={task.isCompleted}
-              onClick={() => {
-                console.log("Toggled completion for task", task.id);
-                updateTask({ ...task, isCompleted: !task.isCompleted });
-              }}
+              onClick={() =>
+                updateTask({ ...task, isCompleted: !task.isCompleted })
+              }
               aria-label="Mark as completed"
               style={{ margin: "0 8px 0 0" }}
             />
