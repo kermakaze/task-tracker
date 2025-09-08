@@ -41,6 +41,16 @@
     background: red;
 }
 
+.editBtn {
+    background: #1681f8;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 .deleteBtn {
     background: #ff4d4d;
     border: none;
@@ -49,6 +59,7 @@
     border-radius: 4px;
     cursor: pointer;
     float: right;
+    margin-left: 4px;
 }
 
 .deleteBtn:hover {
@@ -60,4 +71,34 @@
     color: #6b6b6b;
     font-family: Verdana;
     font-weight: bold;
+}
+
+
+.taskInput {
+    font-weight: bold;
+    font-size: 1.1rem;
+    height: 50px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+}
+
+.taskSelect {
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 1rem;
+    margin-right: 4px;
+    background: #fafafa;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.cancelBtn {
+    margin-left: 4px;
+    transition: background 0.2s;
+}
+
+.cancelBtn:hover {
+    background: #888;
 }
