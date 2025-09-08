@@ -80,7 +80,7 @@ npm run test
 ![Task List](./screenshots/task-list.png)
 
 ### Drag and Drop
-![Drag and Drop](./screenshots/drag-and-drop.mov)
+![Drag and Drop](https://github.com/kermakaze/task-tracker/raw/refs/heads/master/screenshots/drag-and-drop.mov)
 
 ---
 
