@@ -8,5 +8,11 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/setupTests.ts",
+    coverage: {
+      provider: "istanbul",
+      reporter: ["text", "html", "lcov"], // formats
+      reportsDirectory: "./coverage",
+      exclude: ["node_modules/", "src/setupTests.ts"],
+    },
   },
 });
