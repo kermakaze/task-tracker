@@ -22,6 +22,12 @@ const tasks: Task[] = [
     description: "Desc Two",
     priority: Priority.HIGH,
   },
+  {
+    id: 3,
+    title: "Another",
+    description: "Special Description",
+    priority: Priority.LOW,
+  },
 ];
 
 describe("TaskList", () => {
@@ -51,6 +57,7 @@ describe("TaskList", () => {
     );
     expect(screen.getByText("Task One")).toBeInTheDocument();
     expect(screen.getByText("Task Two")).toBeInTheDocument();
+    expect(screen.getByText("Another")).toBeInTheDocument();
   });
 
   it("renders 'No tasks available.' message if filtered tasks is empty", () => {
@@ -86,5 +93,60 @@ describe("TaskList", () => {
     const addBtn = screen.getByRole("button", { name: /add new task/i });
     fireEvent.click(addBtn);
     expect(onAddTask).toHaveBeenCalled();
+  });
+
+  it("filters tasks by search input (title)", () => {
+    render(
+      <TaskProvider>
+        <TaskList
+          tasks={tasks}
+          showAddButton={false}
+          filterApplied={Priority.ALL}
+        />
+      </TaskProvider>,
+    );
+    const searchInput = screen.getByPlaceholderText(
+      /search by title or description/i,
+    );
+    fireEvent.change(searchInput, { target: { value: "Another" } });
+    expect(screen.getByText("Another")).toBeInTheDocument();
+    expect(screen.queryByText("Task One")).not.toBeInTheDocument();
+    expect(screen.queryByText("Task Two")).not.toBeInTheDocument();
+  });
+
+  it("filters tasks by search input (description)", () => {
+    render(
+      <TaskProvider>
+        <TaskList
+          tasks={tasks}
+          showAddButton={false}
+          filterApplied={Priority.ALL}
+        />
+      </TaskProvider>,
+    );
+    const searchInput = screen.getByPlaceholderText(
+      /search by title or description/i,
+    );
+    fireEvent.change(searchInput, { target: { value: "Special" } });
+    expect(screen.getByText("Another")).toBeInTheDocument();
+    expect(screen.queryByText("Task One")).not.toBeInTheDocument();
+    expect(screen.queryByText("Task Two")).not.toBeInTheDocument();
+  });
+
+  it("shows 'No tasks available.' if search yields no results", () => {
+    render(
+      <TaskProvider>
+        <TaskList
+          tasks={tasks}
+          showAddButton={false}
+          filterApplied={Priority.ALL}
+        />
+      </TaskProvider>,
+    );
+    const searchInput = screen.getByPlaceholderText(
+      /search by title or description/i,
+    );
+    fireEvent.change(searchInput, { target: { value: "notfound" } });
+    expect(screen.getByText(/no tasks available/i)).toBeInTheDocument();
   });
 });

@@ -22,3 +22,14 @@
     margin-left: auto;
     font-size: 12px;
 }
+
+.searchInput {
+    margin-bottom: 16px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #bdbdbd;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
