@@ -82,9 +82,27 @@ export const TaskItem: React.FC<{ task: Task }> = ({ task }) => {
         </>
       ) : (
         <>
-          <h3>
-            {task.title}
-            <div style={{ float: "right" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              ...(task.isCompleted
+                ? { textDecoration: "line-through", color: "#888" }
+                : {}),
+            }}
+          >
+            <input
+              type="radio"
+              checked={task.isCompleted}
+              onClick={() => {
+                console.log("Toggled completion for task", task.id);
+                updateTask({ ...task, isCompleted: !task.isCompleted });
+              }}
+              aria-label="Mark as completed"
+              style={{ margin: "0 8px 0 0" }}
+            />
+            <h3 style={{ margin: 0, flex: 1 }}>{task.title}</h3>
+            <div style={{ marginLeft: "auto", display: "flex", gap: "4px" }}>
               <button
                 className={styles.editBtn}
                 onClick={() => setIsEditing(true)}
@@ -100,14 +118,23 @@ export const TaskItem: React.FC<{ task: Task }> = ({ task }) => {
                 <DeleteIcon />
               </button>
             </div>
-          </h3>
+          </div>
           <p>{task.description}</p>
           <div
             className={`${styles.priority} ${styles[task.priority.toLowerCase()]}`}
           >
             {task.priority}
           </div>
-          <div className={`${styles.id}`}>ST-{task.id}</div>
+          <div
+            className={styles.id}
+            style={
+              task.isCompleted
+                ? { textDecoration: "line-through", color: "#888" }
+                : undefined
+            }
+          >
+            ST-{task.id}
+          </div>
         </>
       )}
     </div>

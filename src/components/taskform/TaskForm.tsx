@@ -23,6 +23,7 @@ export const TaskForm: React.FC<{ onClose?: () => void }> = ({ onClose }) => {
       title,
       description,
       priority,
+      isCompleted: false,
     };
 
     addTask(newTask);
