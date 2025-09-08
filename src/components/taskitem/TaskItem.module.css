@@ -89,7 +89,7 @@
     padding: 6px 8px;
     font-size: 1rem;
     margin-right: 4px;
-    background: #fafafa;
+    background: var(--bg-color);
     height: 50px;
     margin-bottom: 10px;
 }
