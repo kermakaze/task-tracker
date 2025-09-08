@@ -4,6 +4,7 @@ import { TaskList } from "./components/tasklist/TaskList.tsx";
 import { useEffect, useState } from "react";
 import { useTasks } from "./hooks/useTasks.ts";
 import { PriorityFilter } from "./components/priorityfilter/PriorityFilter.tsx";
+import { ThemeToggleButton } from "./components/themetogglebutton/ThemeToggleButton.tsx";
 
 const NEW_TASK_HOTKEY = "n";
 
@@ -28,7 +29,17 @@ function App() {
   return (
     <div className={"app"}>
       <h1>Task Tracker</h1>
-      <PriorityFilter />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <PriorityFilter />
+        <ThemeToggleButton />
+      </div>
+
       <TaskList
         tasks={tasks}
         filterApplied={filterApplied}
