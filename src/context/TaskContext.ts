@@ -8,6 +8,7 @@ export interface TaskContextType {
   deleteTask: (taskId: number) => void;
   filterApplied: Priority | Priority.ALL;
   setFilterApplied: (filter: Priority | Priority.ALL) => void;
+  reorderTasks: (newOrder: Task[]) => void;
 }
 
 export const TaskContext = createContext<TaskContextType | undefined>(
