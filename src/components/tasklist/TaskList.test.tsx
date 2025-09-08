@@ -149,4 +149,35 @@ describe("TaskList", () => {
     fireEvent.change(searchInput, { target: { value: "notfound" } });
     expect(screen.getByText(/no tasks available/i)).toBeInTheDocument();
   });
+
+  it("reorders tasks via drag and drop", () => {
+    //Use the real TaskItem for this test to validate DOM order
+    vi.unmock("./TaskItem");
+
+    render(
+      <TaskProvider>
+        <TaskList
+          tasks={tasks}
+          showAddButton={false}
+          filterApplied={Priority.ALL}
+        />
+      </TaskProvider>,
+    );
+
+    // Find draggable containers by test id
+    const taskOne = screen.getByTestId("draggable-task-1");
+    const taskTwo = screen.getByTestId("draggable-task-2");
+
+    // Simulate drag and drop: drag taskOne below taskTwo
+    fireEvent.dragStart(taskOne);
+    fireEvent.dragOver(taskTwo);
+    fireEvent.drop(taskTwo);
+
+    // After drag and drop, the order in the DOM should be [Task Two, Task One, Another]
+    const allTasks = screen.getAllByTestId(/draggable-task-/);
+    const titles = allTasks.map((el) => el.textContent);
+    // The first two should be Task Two and Task One in new order
+    expect(titles[0]).toContain("Task Two");
+    expect(titles[1]).toContain("Task One");
+  });
 });

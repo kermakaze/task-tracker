@@ -36,6 +36,10 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
+  const reorderTasks = (newOrder: Task[]) => {
+    setTasks(newOrder);
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -45,6 +49,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
         deleteTask,
         filterApplied,
         setFilterApplied,
+        reorderTasks,
       }}
     >
       {children}
